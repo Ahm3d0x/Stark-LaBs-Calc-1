@@ -2,10 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="image (1).png">
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/111827/FFFFFF?text=SL">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stark LaBs - حاسبة التكلفة الشاملة</title>
-
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +17,7 @@
     <style>
         body { font-family: 'Tajawal', 'Inter', sans-serif; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
         select {
@@ -39,10 +38,9 @@
 
         <!-- Header -->
         <header class="text-center mb-8">
-<div class="inline-block bg-gray-800 p-4 rounded-full shadow-lg">
-    <img src="./image (1).png" alt="Stark Labs Logo" class="w-20 h-20 rounded-full">
-</div>
-
+            <div class="inline-block bg-gray-800 p-4 rounded-full shadow-lg">
+                <img src="https://placehold.co/80x80/1f2937/FFFFFF?text=SL" alt="Stark Labs Logo" class="w-20 h-20 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/80x80/1f2937/FFFFFF?text=SL';">
+            </div>
             <h1 class="text-4xl font-bold mt-4 text-white">Stark LaBs</h1>
             <p class="text-indigo-400 text-lg mt-1">حاسبة التكاليف الشاملة للطباعة ثلاثية الأبعاد</p>
         </header>
@@ -53,6 +51,21 @@
             <!-- Input Form -->
             <div class="lg:col-span-3 bg-gray-800 p-6 rounded-2xl shadow-2xl space-y-6">
                 
+                <!-- Section 0: Client & Model Info -->
+                <fieldset class="border-2 border-gray-700 rounded-lg p-4">
+                    <legend class="px-2 text-lg font-semibold text-amber-400">معلومات الطلب</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                        <div>
+                            <label for="clientName" class="block text-sm font-medium text-gray-300 mb-1">اسم العميل</label>
+                            <input type="text" id="clientName" placeholder="ادخل اسم العميل" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                        </div>
+                        <div>
+                            <label for="serviceName" class="block text-sm font-medium text-gray-300 mb-1">اسم الخدمة</label>
+                            <input type="text" id="serviceName" placeholder="ادخل اسم النموذج" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                        </div>
+                    </div>
+                </fieldset>
+
                 <!-- Section 1: Material -->
                 <fieldset class="border-2 border-gray-700 rounded-lg p-4">
                     <legend class="px-2 text-lg font-semibold text-amber-400">1. تكلفة المواد</legend>
@@ -96,10 +109,25 @@
                         </div>
                     </div>
                 </fieldset>
-
-                <!-- Section 3: Labor & Other Costs -->
+                
+                <!-- Section 3: Design Cost -->
                 <fieldset class="border-2 border-gray-700 rounded-lg p-4">
-                    <legend class="px-2 text-lg font-semibold text-amber-400">3. التكاليف الإضافية</legend>
+                    <legend class="px-2 text-lg font-semibold text-amber-400">3. تكلفة التصميم</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                        <div>
+                            <label for="designCost" class="block text-sm font-medium text-gray-300 mb-1">تكلفة تصميم النموذج (ج.م)</label>
+                            <input type="number" id="designCost" value="0" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                        </div>
+                        <div>
+                            <label for="designerName" class="block text-sm font-medium text-gray-300 mb-1">اسم المصمم</label>
+                            <input type="text" id="designerName" placeholder="ادخل اسم المصمم" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Section 4: Labor & Other Costs -->
+                <fieldset class="border-2 border-gray-700 rounded-lg p-4">
+                    <legend class="px-2 text-lg font-semibold text-amber-400">4. التكاليف الإضافية للطباعة</legend>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
                         <div>
                            <label for="laborTime" class="block text-sm font-medium text-gray-300 mb-1">وقت العمل اليدوي (ساعة)</label>
@@ -110,10 +138,6 @@
                            <input type="number" id="hourlyRate" value="20" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
                         </div>
                         <div>
-                           <label for="designCost" class="block text-sm font-medium text-gray-300 mb-1">تكلفة تصميم النموذج (ج.م)</label>
-                           <input type="number" id="designCost" value="0" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
-                        </div>
-                         <div>
                             <label for="maintenanceCost" class="block text-sm font-medium text-gray-300 mb-1">صيانة وإهلاك (ج.م/ساعة)</label>
                             <input type="number" step="0.1" id="maintenanceCost" value="3.0" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
                         </div>
@@ -128,17 +152,21 @@
                     </div>
                 </fieldset>
 
-                <!-- Section 4: Profit -->
+                <!-- Section 5: Fees & Profit -->
                  <fieldset class="border-2 border-gray-700 rounded-lg p-4">
-                    <legend class="px-2 text-lg font-semibold text-amber-400">4. الأرباح والمصاريف النهائية</legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                    <legend class="px-2 text-lg font-semibold text-amber-400">5. الرسوم والأرباح</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
                         <div>
                             <label for="overheadPercentage" class="block text-sm font-medium text-gray-300 mb-1">مصاريف إدارية وتسويق (%)</label>
                             <input type="number" id="overheadPercentage" value="10" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
                         </div>
                         <div>
-                            <label for="profitMargin" class="block text-sm font-medium text-gray-300 mb-1">هامش الربح (%)</label>
-                            <input type="number" id="profitMargin" value="30" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                            <label for="websiteFeesPercentage" class="block text-sm font-medium text-gray-300 mb-1">رسوم الموقع/المنصة (%)</label>
+                            <input type="number" id="websiteFeesPercentage" value="5" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
+                        </div>
+                        <div>
+                            <label for="profitMargin" class="block text-sm font-medium text-gray-300 mb-1">هامش ربح الطباعة (%)</label>
+                            <input type="number" id="profitMargin" value="50" class="w-full bg-gray-900 border border-gray-600 rounded-md p-2 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition">
                         </div>
                     </div>
                 </fieldset>
@@ -146,31 +174,58 @@
 
             <!-- Cost Summary -->
             <div class="lg:col-span-2 bg-indigo-900/50 backdrop-blur-sm border-2 border-indigo-700 p-6 rounded-2xl shadow-2xl h-fit sticky top-8">
-                <h2 class="text-2xl font-bold text-center mb-6 text-white">ملخص التكلفة</h2>
+                <h2 class="text-2xl font-bold text-center mb-4 text-white">ملخص التكلفة</h2>
                 
                 <div class="space-y-3 text-lg">
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة المادة الخام</span><span class="font-bold text-amber-400"><span id="materialCostResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة الطاقة</span><span class="font-bold text-amber-400"><span id="energyCostResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة الصيانة والإهلاك</span><span class="font-bold text-amber-400"><span id="maintenanceResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة العمل اليدوي</span><span class="font-bold text-amber-400"><span id="laborCostResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة التصميم</span><span class="font-bold text-amber-400"><span id="designCostResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center"><span class="text-gray-300">تكلفة الفشل المحتمل</span><span class="font-bold text-amber-400"><span id="failureCostResult">0.00</span> ج.م</span></div>
+                                        <!-- Client and Service Info -->
+                    <div class="bg-gray-800/50 p-3 rounded-lg space-y-2">
+                        <div class="flex justify-between items-center"><span class="text-gray-300">العميل:</span><span id="clientNameResult" class="font-bold text-white text-right truncate">...</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-300">الخدمة:</span><span id="serviceNameResult" class="font-bold text-white text-right truncate">...</span></div>
+                    </div>
+                    <!-- Costs Breakdown -->
+                    <p class="text-sm text-indigo-300 font-semibold">تفاصيل التكاليف:</p>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-400">تكلفة المادة الخام</span><span class="font-semibold text-amber-300/80"><span id="materialCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-400">تكلفة الطاقة</span><span class="font-semibold text-amber-300/80"><span id="energyCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-400">تكلفة الصيانة والإهلاك</span><span class="font-semibold text-amber-300/80"><span id="maintenanceAndDepreciationCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-400">تكلفة العمل اليدوي</span><span class="font-semibold text-amber-300/80"><span id="manualLaborCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-400">تكلفة الفشل المحتمل</span><span class="font-semibold text-amber-300/80"><span id="possibleFailureCostResult">0.00</span> ج.م</span></div>
                     
-                    <hr class="border-indigo-600 my-3">
-                    
-                    <div class="flex justify-between items-center font-semibold"><span class="text-gray-200">إجمالي تكاليف الإنتاج</span><span class="font-bold text-white"><span id="productionCostResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center font-semibold"><span class="text-gray-200">مصاريف إدارية وتسويق</span><span class="font-bold text-white"><span id="overheadResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center font-semibold"><span class="text-gray-200">التكلفة الإجمالية (قبل الربح)</span><span class="font-bold text-xl text-white"><span id="subtotalResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center font-semibold"><span class="text-gray-200">قيمة الربح</span><span class="font-bold text-xl text-white"><span id="profitResult">0.00</span> ج.م</span></div>
-                    <div class="flex justify-between items-center font-semibold"><span class="text-gray-200">تكلفة الشحن</span><span class="font-bold text-xl text-white"><span id="shippingResult">0.00</span> ج.م</span></div>
+                    <hr class="border-indigo-600/50 my-2">
 
-                    <div class="bg-gray-900 p-4 rounded-lg mt-6 text-center">
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-300">تكلفة الطباعة الأساسية</span><span class="font-semibold text-amber-400"><span id="basicPrintingCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-300">رسوم إدارية وتسويق</span><span class="font-semibold text-amber-400"><span id="managementFeesResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-300">رسوم الموقع/المنصة</span><span class="font-semibold text-amber-400"><span id="websiteFeesResult">0.00</span> ج.م</span></div>
+
+                    <hr class="border-indigo-600 my-2">
+                    
+                    <!-- Pricing Breakdown -->
+                    <p class="text-sm text-indigo-300 font-semibold mt-3">مكونات السعر النهائي:</p>
+                    <div class="flex justify-between items-center"><span class="text-gray-200">التكلفة الإجمالية (شاملة الرسوم)</span><span class="font-bold text-white"><span id="totalCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-200">قيمة الربح</span><span class="font-bold text-xl text-white"><span id="profitResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-200"> الاجمالي</span><span class="font-bold text-white"><span id="costwithout_design">0.00</span> ج.م</span></div>
+                    
+                    <div class="flex justify-between items-center"><span class="text-fuchsia-500">تكلفة التصميم</span><span class="font-bold text-fuchsia-500"><span id="designCostResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-200">سعر المنتج (قبل الشحن)</span><span class="font-bold text-white"><span id="priceBeforeShippingResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-200">تكلفة الشحن</span><span class="font-bold text-white"><span id="shippingResult">0.00</span> ج.م</span></div>
+
+                    <!-- Final Price -->
+                    <div class="bg-gray-900 p-4 rounded-lg mt-4 text-center">
                         <p class="text-lg text-amber-400">السعر النهائي المقترح للعميل</p>
                         <p class="text-4xl lg:text-5xl font-extrabold text-white mt-2 tracking-tight">
                             <span id="finalPriceResult">0.00</span>
                             <span class="text-2xl font-semibold">ج.م</span>
                         </p>
                     </div>
+
+                    <hr class="border-indigo-600 my-2">
+                    
+                    <!-- Internal Payouts -->
+                    <p class="text-sm text-indigo-300 font-semibold mt-3">التوزيع الداخلي للأرباح:</p>
+                    <div class="flex justify-between items-center font-semibold"><span class="text-green-400">  إجمالي ربح الشركة [50% طباعة]+[30% تصميم]</span><span class="font-bold text-xl text-green-300"><span id="totalCompanyProfitResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-300">حصة الشريك الأول (66.67%)</span><span class="font-bold text-white"><span id="partner1ShareResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center text-base"><span class="text-gray-300">حصة الشريك الثاني (33.33%)</span><span class="font-bold text-white"><span id="partner2ShareResult">0.00</span> ج.م</span></div>
+                    <div class="flex justify-between items-center mt-2"><span class="text-fuchsia-600">حصة المصمم [70%] (<span id="designerNameResult">...</span>)</span><span class="font-bold text-fuchsia-500"><span id="designerShareResult">0.00</span> ج.م</span></div>
+
                 </div>
                  <button id="resetBtn" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 shadow-lg">إعادة تعيين</button>
             </div>
@@ -189,8 +244,13 @@
         // --- Main Calculation Function ---
         function calculateCosts() {
             const getValue = id => parseFloat(document.getElementById(id).value) || 0;
+            const getText = id => {
+                const element = document.getElementById(id);
+                return element ? element.value.trim() || '...' : '...';
+            };
 
-            // Read all input values
+            // --- Read all input values ---
+
             const modelWeight = getValue('modelWeight');
             const spoolWeight = getValue('spoolWeight') || 1;
             const spoolPrice = getValue('spoolPrice');
@@ -200,52 +260,91 @@
             const maintenanceCostPerHour = getValue('maintenanceCost');
             const laborTime = getValue('laborTime');
             const hourlyRate = getValue('hourlyRate');
-            const designCost = getValue('designCost');
             const failurePercentage = getValue('failurePercentage');
             const shippingCost = getValue('shippingCost');
             const overheadPercentage = getValue('overheadPercentage');
+            const websiteFeesPercentage = getValue('websiteFeesPercentage');
             const profitMargin = getValue('profitMargin');
-
-            // --- Perform Calculations ---
-            // 1. Core Production Costs
+            const designCost = getValue('designCost');
+            const designerName = getText('designerName');
+            const clientName = getText('clientName');
+            const serviceName = getText('serviceName');
+            // --- Perform Calculations based on the new financial structure ---
+            
+            // 1. Calculate individual cost components
             const materialCost = (modelWeight / spoolWeight) * spoolPrice;
             const energyCost = (printerPower * totalPrintTimeHours / 1000) * electricityPrice;
-            const maintenanceCost = totalPrintTimeHours * maintenanceCostPerHour;
-            const laborCost = laborTime * hourlyRate;
+            const maintenanceAndDepreciationCost = totalPrintTimeHours * maintenanceCostPerHour;
+            const manualLaborCost = laborTime * hourlyRate;
+            const directCosts = materialCost + energyCost + maintenanceAndDepreciationCost + manualLaborCost;
+            const possibleFailureCost = directCosts * (failurePercentage / 100);
 
-            // 2. Cost buffer for failures
-            const directPrintCosts = materialCost + energyCost + maintenanceCost;
-            const failureCost = directPrintCosts * (failurePercentage / 100);
+            // Basic Printing Cost
+            const basicPrintingCost = directCosts + possibleFailureCost;
 
-            // 3. Total Production Cost
-            const totalProductionCost = directPrintCosts + laborCost + designCost + failureCost;
+            // Management and Website Fees
+            const managementAndMarketingFees = basicPrintingCost * (overheadPercentage / 100);
+            const websiteFees = basicPrintingCost * (websiteFeesPercentage / 100);
 
-            // 4. Overheads (Marketing, Admin)
-            const overheadCost = totalProductionCost * (overheadPercentage / 100);
+            // 2. Total Production and Marketing Cost
+            const totalCost = basicPrintingCost + managementAndMarketingFees + websiteFees;
 
-            // 5. Subtotal (Total cost before profit)
-            const subtotal = totalProductionCost + overheadCost;
+            // 3. Profit Calculation
+            const companyProfitFromPrinting = totalCost * (profitMargin / 100);
+            const companyProfitFromDesign = designCost * 0.30;
 
-            // 6. Profit Amount
-            const profitAmount = subtotal * (profitMargin / 100);
+            const costwithout_design = totalCost + companyProfitFromPrinting;
 
-            // 7. Final Price (including shipping)
-            const finalPrice = subtotal + profitAmount + shippingCost;
+            // This is the price before shipping, including the full design cost which the customer pays.
+            const priceBeforeShipping = totalCost + companyProfitFromPrinting + designCost;
+
+            // 4. Final Product Pricing
+            const finalPrice = priceBeforeShipping + shippingCost;
+            
+            // 5. Designer's Share
+            const designerShare = designCost * 0.70;
+
+            // 6. Internal Profit Distribution
+            const totalCompanyProfit = companyProfitFromPrinting + companyProfitFromDesign;
+            const partner1Share = totalCompanyProfit * (2 / 3);
+            const partner2Share = totalCompanyProfit * (1 / 3);
 
             // --- Update UI ---
             const setResult = (id, value) => { document.getElementById(id).textContent = value.toFixed(2); };
+            const setTextResult = (id, value) => { document.getElementById(id).textContent = value; };
+
+            setTextResult('clientNameResult', clientName);
+            setTextResult('serviceNameResult', serviceName);
+            // Set Detailed Costs Breakdown
             setResult('materialCostResult', materialCost);
             setResult('energyCostResult', energyCost);
-            setResult('maintenanceResult', maintenanceCost);
-            setResult('laborCostResult', laborCost);
+            setResult('maintenanceAndDepreciationCostResult', maintenanceAndDepreciationCost);
+            setResult('manualLaborCostResult', manualLaborCost);
+            setResult('possibleFailureCostResult', possibleFailureCost);
+
+            // Set Summary Costs Breakdown
+            setResult('basicPrintingCostResult', basicPrintingCost);
+            setResult('managementFeesResult', managementAndMarketingFees);
+            setResult('websiteFeesResult', websiteFees);
+            
+            // Set Pricing Breakdown
+            setResult('totalCostResult', totalCost);
+            setResult('profitResult', companyProfitFromPrinting);
+            setResult('costwithout_design', costwithout_design);
+
             setResult('designCostResult', designCost);
-            setResult('failureCostResult', failureCost);
-            setResult('productionCostResult', totalProductionCost);
-            setResult('overheadResult', overheadCost);
-            setResult('subtotalResult', subtotal);
-            setResult('profitResult', profitAmount);
+            setResult('priceBeforeShippingResult', priceBeforeShipping);
             setResult('shippingResult', shippingCost);
+
+            // Set Final Price
             setResult('finalPriceResult', finalPrice);
+
+            // Set Internal Payouts
+            setResult('totalCompanyProfitResult', totalCompanyProfit);
+            setResult('partner1ShareResult', partner1Share);
+            setResult('partner2ShareResult', partner2Share);
+            setTextResult('designerNameResult', designerName);
+            setResult('designerShareResult', designerShare);
         }
 
         // --- Event Handlers ---
@@ -258,6 +357,9 @@
         }
 
         function resetForm() {
+            // Reset all fields to their default values
+            document.getElementById('clientName').value = '';
+            document.getElementById('modelName').value = '';
             document.getElementById('modelWeight').value = '0';
             document.getElementById('materialType').value = 'PLA';
             document.getElementById('spoolWeight').value = '1000';
@@ -268,11 +370,13 @@
             document.getElementById('laborTime').value = '0.5';
             document.getElementById('hourlyRate').value = '20';
             document.getElementById('designCost').value = '0';
+            document.getElementById('designerName').value = '';
             document.getElementById('failurePercentage').value = '5';
             document.getElementById('shippingCost').value = '0';
             document.getElementById('overheadPercentage').value = '10';
-            document.getElementById('profitMargin').value = '30';
-            handleMaterialChange();
+            document.getElementById('websiteFeesPercentage').value = '5';
+            document.getElementById('profitMargin').value = '50';
+            handleMaterialChange(); // This also triggers calculateCosts
         }
 
         // --- Attach Event Listeners ---
